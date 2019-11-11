@@ -9,9 +9,9 @@ import { IProduct } from './product';
 
 export class ProductListComponent implements OnInit {
     pageTitle = 'Product List';
-    imageWidth: number = 50;
-    imageMargin: number = 2;
-    showImage: boolean = false;
+    imageWidth = 50;
+    imageMargin = 2;
+    showImage = false;
 
     _listFilter = '';
     get listFilter(): string {
@@ -60,6 +60,10 @@ export class ProductListComponent implements OnInit {
     constructor() {
         this.filteredProducts = this.products;
         this.listFilter = 'cart' ;
+    }
+
+    onRatingClicked(message: string): void {
+      this.pageTitle = 'Product List: ' + message;
     }
 
     performFilter(filterBy: string): IProduct[] {
